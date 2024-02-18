@@ -78,8 +78,7 @@ export const deleteSubCategory = async (req, res, next) => {
   });
 };
 
-
 export const getSubCategories = async (req, res, next) => {
-    let subCategories = await SubCategory.find();
-    return res.json({ success: true, subCategories });
-  };
+  let subCategories = await SubCategory.find();
+  return res.json({ success: true, subCategories });
+};

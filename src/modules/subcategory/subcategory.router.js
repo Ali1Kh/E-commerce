@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { asyncHandler } from "../../utils/asyncHandler.js";
-import * as categoryController from "./subcategory.controller.js";
+import * as subCategoryController from "./subcategory.controller.js";
 import { validation } from "../../middlewares/validation.middleware.js";
 import { isAuthorized } from "../../middlewares/authorization.middleware.js";
 import { isAuth } from "../../middlewares/authintication.middleware.js";
@@ -18,7 +18,7 @@ router.post(
   isAuthorized("admin"),
   uploadFiles().single("subCategoryImg"),
   validation(createSubCategorySchema),
-  asyncHandler(categoryController.createSubCategory)
+  asyncHandler(subCategoryController.createSubCategory)
 );
 
 router.patch(
@@ -27,7 +27,7 @@ router.patch(
   isAuthorized("admin"),
   uploadFiles().single("subCategoryImg"),
   validation(updateSubCategorySchema),
-  asyncHandler(categoryController.updateSubCategory)
+  asyncHandler(subCategoryController.updateSubCategory)
 );
 
 router.delete(
@@ -35,9 +35,9 @@ router.delete(
   asyncHandler(isAuth),
   isAuthorized("admin"),
   validation(deleteSubCategorySchema),
-  asyncHandler(categoryController.deleteSubCategory)
+  asyncHandler(subCategoryController.deleteSubCategory)
 );
 
-router.get("/", asyncHandler(categoryController.getSubCategories));
+router.get("/", asyncHandler(subCategoryController.getSubCategories));
 
 export default router;
