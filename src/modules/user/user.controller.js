@@ -74,6 +74,8 @@ export const login = async (req, res, next) => {
 export const sendRestCode = async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
   if (!user) return next(new Error("User Not Found"));
+  if (!user.isEmailVerified)
+    return next(new Error("Activate Your Account First"));
   const code = randomstring.generate({ length: 5, charset: "numeric" });
   user.forgetCode = code;
   await user.save();
@@ -98,6 +100,7 @@ export const forgetPass = async (req, res, next) => {
     req.body.password,
     parseInt(process.env.SALT_ROUND)
   );
+  user.forgetCode = null;
   await user.save();
   const tokens = await Token.find({ user: user._id });
   tokens.forEach(async (token) => {

@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { Token } from "../../DB/models/token.model.js";
-import { User } from "../../DB/models/user.model.js";
+import { User } from "../../DB/models/users.model.js";
 export const isAuth = async (req, res, next) => {
   let { token } = req.headers;
   if (!token) return next(new Error("You Must Enter Token"));
