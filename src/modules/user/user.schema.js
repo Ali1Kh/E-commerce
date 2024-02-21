@@ -31,8 +31,8 @@ export const signUpSchema = joi
         "string.max": "Phone Number Cannot be more than 11 Characters",
         "string.pattern.base": "Please Enter Vaild Phone Number",
       }),
-    role: joi.string().uppercase().valid("USER", "ADMIN").required().messages({
-      "any.only": "Role Must Be One Of (USER,ADMIN)",
+    role: joi.string().uppercase().valid("USER", "ADMIN","SELLER").required().messages({
+      "any.only": "Role Must Be One Of (USER,ADMIN,SELLER)",
     }),
   })
   .required();

@@ -6,6 +6,8 @@ import categoryRouter from "./src/modules/category/category.router.js";
 import subCategoryRouter from "./src/modules/subcategory/subcategory.router.js";
 import brandsRouter from "./src/modules/brand/brand.router.js";
 import reviewsRouter from "./src/modules/reviews/reviews.router.js";
+import couponsRouter from "./src/modules/coupons/coupons.router.js";
+
 
 dotenv.config();
 const port = process.env.PORT;
@@ -18,6 +20,8 @@ app.use("/category",categoryRouter);
 app.use("/subCategory",subCategoryRouter);
 app.use("/brands",brandsRouter);
 app.use("/reviews",reviewsRouter);
+app.use("/coupons",couponsRouter);
+
 
 
 

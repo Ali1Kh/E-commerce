@@ -12,7 +12,7 @@ const userSchema = new Schema({
     required: true,
     validate(value) {
       value = value.toLowerCase();
-      return value === "user" || value === "admin";
+      return value === "user" || value === "seller" || value === "admin";
     },
   },
   isEmailVerified: {
