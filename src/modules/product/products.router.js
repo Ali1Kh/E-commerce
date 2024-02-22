@@ -25,8 +25,6 @@ router.get(
   asyncHandler(productsController.getProducts)
 );
 
-
-
 router.delete(
   "/:id",
   asyncHandler(isAuth),

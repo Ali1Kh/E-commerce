@@ -48,7 +48,7 @@ productSchema.query.paginate = function (page) {
 
 productSchema.query.search = function (key) {
   if (key) {
-    return this.find({ name: { $regex: key , $options:"i"} });
+    return this.find({ name: { $regex: key, $options: "i" } });
   }
 };
 

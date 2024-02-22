@@ -8,6 +8,8 @@ import brandsRouter from "./src/modules/brand/brand.router.js";
 import reviewsRouter from "./src/modules/reviews/reviews.router.js";
 import couponsRouter from "./src/modules/coupons/coupons.router.js";
 import productsRouter from "./src/modules/product/products.router.js";
+import cartRouter from "./src/modules/cart/cart.router.js";
+
 
 dotenv.config();
 const port = process.env.PORT;
@@ -22,6 +24,8 @@ app.use("/brands",brandsRouter);
 app.use("/reviews",reviewsRouter);
 app.use("/coupons",couponsRouter);
 app.use("/products",productsRouter);
+app.use("/cart",cartRouter);
+
 
 
 

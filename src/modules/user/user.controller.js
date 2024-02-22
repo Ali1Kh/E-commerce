@@ -5,6 +5,7 @@ import { Token } from "../../../DB/models/token.model.js";
 import randomstring from "randomstring";
 import { sendEmail } from "../../utils/sendEmail.js";
 import { activateAccTemplate } from "../../utils/emailTemplates.js";
+import { Cart } from "../../../DB/models/cart.model.js";
 
 export const signup = async (req, res, next) => {
   let emailExits = await User.findOne({ email: req.body.email });
@@ -42,6 +43,8 @@ export const activateAccount = async (req, res, next) => {
     { isEmailVerified: true }
   );
   if (!user) return next(new Error("User not found"));
+
+  await Cart.create({ user: user._id });
   res.send("Account Activated");
 };
 
