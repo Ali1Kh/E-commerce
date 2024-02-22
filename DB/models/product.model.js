@@ -52,4 +52,8 @@ productSchema.query.search = function (key) {
   }
 };
 
+productSchema.methods.inStock = function(quantity){
+return this.quantity >= quantity?true:false
+}
+
 export const Product = model("Product", productSchema);

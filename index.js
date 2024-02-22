@@ -9,6 +9,8 @@ import reviewsRouter from "./src/modules/reviews/reviews.router.js";
 import couponsRouter from "./src/modules/coupons/coupons.router.js";
 import productsRouter from "./src/modules/product/products.router.js";
 import cartRouter from "./src/modules/cart/cart.router.js";
+import orderRouter from "./src/modules/order/order.router.js";
+
 
 
 dotenv.config();
@@ -17,17 +19,15 @@ const app = express();
 app.use(express.json());
 await dbConect();
 
-app.use("/auth",userRouter);
-app.use("/category",categoryRouter);
-app.use("/subCategory",subCategoryRouter);
-app.use("/brands",brandsRouter);
-app.use("/reviews",reviewsRouter);
-app.use("/coupons",couponsRouter);
-app.use("/products",productsRouter);
-app.use("/cart",cartRouter);
-
-
-
+app.use("/auth", userRouter);
+app.use("/category", categoryRouter);
+app.use("/subCategory", subCategoryRouter);
+app.use("/brands", brandsRouter);
+app.use("/reviews", reviewsRouter);
+app.use("/coupons", couponsRouter);
+app.use("/products", productsRouter);
+app.use("/cart", cartRouter);
+app.use("/order",orderRouter);
 
 
 app.all("*", (req, res, next) => res.send("End Point Not Found"));

@@ -8,6 +8,7 @@ export const addToCart = async (req, res, next) => {
   if (req.body.quantity > isProduct.quantity)
     return next(new Error("Product Sold Out"));
 
+
   await Cart.findOneAndUpdate(
     {
       user: req.user._id,
